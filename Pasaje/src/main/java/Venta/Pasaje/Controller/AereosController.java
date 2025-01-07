@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Venta.Pasaje.Modelo.Vuelo;
@@ -15,18 +16,20 @@ import Venta.Pasaje.DTO.MensajeDto;
 import Venta.Pasaje.DTO.PasajeDto;
 import Venta.Pasaje.DTO.VueloDto;
 
-@RestController("/Aereos")
+@RestController
+@RequestMapping("/aereo")
 public class AereosController {
 	
 	
 	@Autowired
 	VueloServicio vueloServicio;
 	
-	@GetMapping("/aereosDisponibles")
+	@GetMapping("/todos")
 	public Collection<Vuelo> aereosDisponibles(){
 		Collection<Vuelo>vuelos = vueloServicio.findAll();
-		return vuelos.stream().filter(v -> v.pasajesDisponibles()>0)
-							.toList();
+//		return vuelos.stream().filter(v -> v.pasajesDisponibles()>0)
+//							  .toList();
+		return vuelos;
 	}
 	
 	@GetMapping("/numero/{idVuelo}")
@@ -34,13 +37,12 @@ public class AereosController {
 		return vueloServicio.findById(idVuelo);
 	}
 	
-	@PostMapping("")
+	@PostMapping("agregarVuelo")
 	public MensajeDto addNuevoVuelo (@RequestBody VueloDto vueloDto) {
-		
 		return vueloServicio.addVuelo(vueloDto);
 	}
 	
-	@PostMapping("/comprarPasaje")
+	@PostMapping("/comprar")
 	public MensajeDto compraDePasaje(@RequestBody PasajeDto pasajeDto) {
 		return vueloServicio.comprarPasaje(pasajeDto);
 	}

@@ -3,15 +3,24 @@ package Venta.Pasaje.Modelo;
 public class Pasaje {
 	
 	private Integer id;
-	private String nombreClinte;
+	private String nombreCliente;
 	private Integer idVuelo;
 	
-	
-	public String getNombreClinte() {
-		return nombreClinte;
+	public Pasaje() {
+		
 	}
-	public void setNombreClinte(String nombreClinte) {
-		this.nombreClinte = nombreClinte;
+	
+	public Pasaje (Integer id, String nombreCliente,Integer idVuelo ) {
+		this.id = id;
+		this.nombreCliente = nombreCliente;
+		this.idVuelo = idVuelo;
+	}
+	
+	public String getNombreCliente() {
+		return nombreCliente;
+	}
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
 	}
 	public Integer getId() {
 		return id;

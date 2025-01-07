@@ -2,7 +2,7 @@ package Venta.Pasaje.Servicio;
 
 import java.util.Collection;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import Venta.Pasaje.DTO.MensajeDto;
@@ -15,7 +15,7 @@ import Venta.Pasaje.Repository.StoreVuelo;
 @Service
 public class VueloServicio {
 	
-	@Autowired
+
 	private StoreVuelo storeVuelo;
 	
 	//Listado de Vuelo
@@ -59,6 +59,8 @@ public class VueloServicio {
 	
 	//comprar un Pasaje para un Vuelo
 	public synchronized MensajeDto comprarPasaje(PasajeDto pasajeDto) {
+		
+		
 		this.storeVuelo = StoreVuelo.getInsance();
 		if ( this.findById(pasajeDto.getIdVuelo()).pasajesDisponibles()> 0 ) {
 			Vuelo vuelo = this.findById(pasajeDto.getIdVuelo());

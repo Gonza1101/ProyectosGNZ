@@ -21,7 +21,7 @@ public class Vuelo {
 	}
 	
 	public Integer totalPasajesVendidos() {
-		return this.pasajes.size()+1;
+		return this.pasajes.size();
 	}
 	public void agregarPasajes(Pasaje pasajeNuevo) {
 		this.pasajes.add(pasajeNuevo);
@@ -29,7 +29,8 @@ public class Vuelo {
 	public Integer pasajesDisponibles() {
 		return this.capacidadMax - totalPasajesVendidos();
 	}
-
+	
+	// ----- Getter and Setter -----
 	public Integer getId() {
 		return id;
 	}

@@ -1,6 +1,7 @@
 package Venta.Pasaje.DTO;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import Venta.Pasaje.Modelo.Vuelo;
 
@@ -14,15 +15,16 @@ public class VueloDto {
 		this.id = id;
 		this.capacidadMax = capacidadMax;
 		this.fechaVuelo = fechaVuelo;
+		this.pasajesDto = new ArrayList<PasajeDto>();
 	}
 	
 	public Vuelo toModel() {
-		Vuelo vueloNuevo = new Vuelo();
-		vueloNuevo.setId(this.id);
-		vueloNuevo.setCapacidadMax(this.capacidadMax);
-		vueloNuevo.setFechaVuelo(this.fechaVuelo);
-		for (PasajeDto pasajeDto : this.pasajesDto) {
-			vueloNuevo.agregarPasajes(pasajeDto.toModel());
+		Vuelo vueloNuevo = new Vuelo(this.id, this.capacidadMax, this.fechaVuelo);
+		
+		if(!(this.pasajesDto.isEmpty())) {
+			for (PasajeDto pasajeDto : this.pasajesDto) {
+				vueloNuevo.agregarPasajes(pasajeDto.toModel());
+			}
 		}
 		return vueloNuevo;
 	}
