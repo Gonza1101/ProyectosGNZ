@@ -1,25 +1,14 @@
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { CrearCancha } from "../../api"
-import { BarraNavegacion } from "../NavBar/BarraNavegacion"
 import { Cancha } from "../../Model";
-import { UsuarioContexto } from "../../Context/UsuarioContexto";
-import { useNavigate } from "react-router-dom";
-
-
-
 
 export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
-
-    const  navigate  = useNavigate();
-    const { usuario } = useContext(UsuarioContexto);
     const [mensaje, setMensaje] = useState<string | null>(null);
     const inputNombreRef = useRef<HTMLInputElement>(null);
     const inputDireccionRef = useRef<HTMLInputElement>(null);
     const inputHorarioInicio = useRef<HTMLInputElement>(null);
     const inputHorarioFin = useRef<HTMLInputElement>(null);
     const [estado, setEstado] = useState<string>("Habilitada");
-
-
     const handlerBotonCrear = async () => {
         if (!(inputNombreRef.current!.value && inputDireccionRef.current!.value && inputHorarioInicio.current!.value
              && inputHorarioFin.current!.value )) {
@@ -39,10 +28,7 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
             const respuesta = await CrearCancha(cancha, token);
             setMensaje(respuesta);
         }
-        
-        
     }
-
     const handleKeyUp= (e : React.KeyboardEvent) => {
         if (e.key === "Enter") {
             handlerBotonCrear();
@@ -50,11 +36,6 @@ export const CanchaCreate : React.FC<{token:string}> = ( { token } ) => {
            
         }
     }
-
-    const handleVolver = () =>{
-        navigate('/admin')
-    }
-
    return (
         <>
           {/* <BarraNavegacion cambio={handleVolver} key={usuario.id} nombre={usuario.nombre} rol={usuario.rol} /> */}

@@ -1,11 +1,11 @@
 export type ReservaTipo ={
     id: string,
-    idUsuario: String,
+    idUsuario: string,
     nombreUsuario: string,
-    idCancha: String,
-    nombreCancha: String,
-    estadoreserva:String,
-    inicioReserva: String,
-    finReserva: String,
+    idCancha: string,
+    nombreCancha: string,
+    estadoreserva:string,
+    inicioReserva: string,
+    finReserva: string,
 }
 

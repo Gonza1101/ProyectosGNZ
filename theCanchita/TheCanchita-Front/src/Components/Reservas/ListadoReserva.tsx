@@ -2,7 +2,6 @@ import { ReservaFila } from "./ReservaFila"
 import React from "react"
 import { ReservaTipo } from "../../Model"
 
-
 type listReservaProps = {
     reservas:ReservaTipo[],
     // verReservas: ()=>void,
@@ -10,7 +9,6 @@ type listReservaProps = {
     confirmar:(idReserva:string)=>void,
     rol:string;
 }
-
 export const ListadoReserva:React.FC<listReservaProps> =({cancelar,confirmar,reservas,rol})=>{
 
     return (

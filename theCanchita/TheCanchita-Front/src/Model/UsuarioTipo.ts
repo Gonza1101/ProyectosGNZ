@@ -8,7 +8,6 @@ export type UsuarioTipo ={
     telefono:string,
     cantidadReservas:number,
     codigoRespuesta:number,
-    cantidadReservas:number,
 
 }
 

@@ -1,4 +1,4 @@
 export type UserLogin ={
-    nombreUsuario:String,
-    contraseña: String
+    nombreUsuario:string,
+    contraseña: string
 }

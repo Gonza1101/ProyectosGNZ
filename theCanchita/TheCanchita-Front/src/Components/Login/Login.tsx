@@ -23,8 +23,6 @@ export const Login = () => {
                 
             );
     }
-
-
     const handleKeyUp = (e: React.KeyboardEvent) => {
         if (e.key === "Enter") {
           if (inputNombreRef.current!.value && inputContraseñaRef.current!.value) {
@@ -34,7 +32,6 @@ export const Login = () => {
           }
         }
       };
-    
 
     return (
         <>
